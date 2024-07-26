@@ -4,6 +4,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+
+console.log("about.....")
+
+</script>
+
 <style>
 @media (min-width: 1024px) {
   .about {

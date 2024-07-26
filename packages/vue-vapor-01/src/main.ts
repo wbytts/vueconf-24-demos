@@ -1,14 +1,24 @@
-import './assets/main.css'
+// 初始化
+const container = document.createElement('div')
+const label = document.createElement('h1')
+const button = document.createElement('button')
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+button.textContent = 'Increase'
+button.addEventListener('click', increase) // 注册事件
 
-import App from './App.vue'
-import router from './router'
+let count = 0
 
-const app = createApp(App)
+// 渲染函数
+const render = () => {
+  label.textContent = `Count: ${count}`
+}
 
-app.use(createPinia())
-app.use(router)
+function increase() {
+  count++
+  render() // 修改内容之后手动重新渲染
+}
 
-app.mount('#app')
+render() // 首次渲染
+
+document.body.append(container)
+container.append(label, button)
